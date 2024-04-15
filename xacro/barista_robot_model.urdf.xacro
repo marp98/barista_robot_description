@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="barista_robot">
 
+    <xacro:include filename="$(find barista_robot_description)/xacro/wheel.xacro" />
+    <xacro:include filename="$(find barista_robot_description)/xacro/standoff.xacro" />
+    <xacro:include filename="$(find barista_robot_description)/xacro/cup_holder_tray.xacro" />
+
     <xacro:property name="base_radius" value="0.178"/>
     <xacro:property name="base_length" value="0.155"/>
     <xacro:property name="base_mass" value="2.35"/>
@@ -50,40 +54,6 @@
             <inertia ixx="0.01392573958333333" ixy="0" ixz="0" iyy="0.01392573958333333" iyz="0" izz="0.02650260416666667"/>
         </inertial>
     </link>
-
-    <xacro:macro name="wheel" params="wheel_name wheel_position">
-        <link name="${wheel_name}">
-            <visual>
-            <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-            <geometry>
-                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-            </geometry>
-            <material name="black"/>
-            </visual>
-
-            <collision>
-            <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-            <geometry>
-                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-            </geometry>
-            </collision>
-
-            <inertial>
-            <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-            <mass value="${wheel_mass}"/>
-            <inertia ixx="3.07426666666667e-05" ixy="0" ixz="0" iyy="3.07426666666667e-05" iyz="0" izz="6.12266666666667e-05"/>
-            </inertial>
-        </link>
-
-        <joint name="joint_${wheel_name}" type="continuous">
-            <origin rpy="0 0 0" xyz="0 ${wheel_position} -0.0775"/>
-            <child link="${wheel_name}"/>
-            <parent link="base_link"/>
-            <axis rpy="0 0 0" xyz="0 1 0"/>
-            <limit effort="${wheel_effort_limit}" velocity="${wheel_velocity_limit}"/>
-            <joint_properties damping="${wheel_damping}" friction="${wheel_friction}"/>
-        </joint>
-    </xacro:macro>
 
     <xacro:wheel wheel_name="left_wheel" wheel_position="0.128" />
     <xacro:wheel wheel_name="right_wheel" wheel_position="-0.128" />
@@ -273,36 +243,6 @@
     <dynamics damping="${caster_damping}" friction="${caster_friction}"/>
     </joint>
 
-
-   <xacro:macro name="standoff_rod" params="rod_name rod_x_pos rod_y_pos">
-        <link name="${rod_name}">
-            <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <cylinder length="${standoff_length}" radius="${standoff_radius}"/>
-            </geometry>
-            <material name="gray"/>
-            </visual>
-            <collision>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <cylinder length="${standoff_length}" radius="${standoff_radius}"/>
-            </geometry>
-            </collision>
-            <inertial>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <mass value="${standoff_mass}"/>
-            <inertia ixx="2.058333333333333e-06" ixy="0" ixz="0" iyy="2.058333333333333e-06" iyz="0" izz="5.0625e-09"/>
-            </inertial>
-        </link>
-
-        <joint name="joint_${rod_name}" type="fixed">
-            <origin rpy="0 0 0" xyz="${rod_x_pos} ${rod_y_pos} 0.1875"/>
-            <parent link="base_link"/>
-            <child link="${rod_name}"/>
-        </joint>
-    </xacro:macro>
-
     <xacro:standoff_rod rod_name="standoff_rod_1" rod_x_pos="0.100" rod_y_pos="0.100" />
     <xacro:standoff_rod rod_name="standoff_rod_2" rod_x_pos="-0.100" rod_y_pos="0.100" />
     <xacro:standoff_rod rod_name="standoff_rod_3" rod_x_pos="-0.100" rod_y_pos="-0.100" />
@@ -310,34 +250,6 @@
 
 
     <!-- Top Base -->
-
-    <xacro:macro name="cup_holder_tray" params="tray_z_pos">
-        <link name="cup_holder_tray">
-            <visual>
-            <geometry>
-                <cylinder radius="${top_base_radius}" length="${top_base_length}"/>
-            </geometry>
-            <material name="green_dark"/>
-            </visual>
-            <collision>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <cylinder radius="${top_base_radius}" length="${top_base_length}"/>
-            </geometry>
-            </collision>
-            <inertial>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <mass value="${top_base_mass}"/>
-            <inertia ixx="0.0028783333333333335" ixy="0" ixz="0" iyy="0.0028783333333333335" iyz="0" izz="0.00512"/>
-            </inertial>
-        </link>
-
-        <joint name="joint_cup_holder_tray" type="fixed">
-            <origin rpy="0 0 0" xyz="0 0 ${tray_z_pos}"/>
-            <parent link="base_link"/>
-            <child link="cup_holder_tray"/>
-        </joint>
-    </xacro:macro>
 
     <xacro:cup_holder_tray tray_z_pos="${top_base_z_offset}" />
 
