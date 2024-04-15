@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot name="box_bot">
+
+    <material name="green_dark">
+        <color rgba="0.0 0.5 0.0 1"/>
+    </material>
+
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1"/>
+    </material>
+
+     <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.178" length="0.155"/>
+            </geometry>
+            <material name="green_dark"/>
+        </visual>
+    </link>
+
+</robot>
