@@ -5,6 +5,10 @@
         <color rgba="0.0 0.5 0.0 1"/>
     </material>
 
+    <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/> 
+    </material>
+
     <material name="black">
         <color rgba="0.0 0.0 0.0 1"/>
     </material>
@@ -43,7 +47,7 @@
     </joint>
 
     <!-- Right Wheel -->
-    
+
     <link name="right_wheel">
     <visual>
         <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
@@ -61,6 +65,97 @@
         <axis rpy="0 0 0" xyz="0 1 0"/>
         <limit effort="10000" velocity="1000"/>
         <joint_properties damping="1.0" friction="1.0"/>
+    </joint>
+
+
+   <!-- Standoff Rod 1 -->
+
+    <link name="standoff_rod_1">
+    <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+        <cylinder length="0.220" radius="0.010"/>
+        </geometry>
+        <material name="gray"/>
+    </visual>
+    </link>
+
+    <joint name="joint_standoff_rod_1" type="fixed">
+        <origin rpy="0 0 0" xyz="0.100 0.100 0.1875"/>
+        <parent link="base_link"/>
+        <child link="standoff_rod_1"/>
+    </joint>
+
+    <!-- Standoff Rod 2 -->
+
+    <link name="standoff_rod_2">
+    <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+        <cylinder length="0.220" radius="0.010"/>
+        </geometry>
+        <material name="gray"/>
+    </visual>
+    </link>
+
+    <joint name="joint_standoff_rod_2" type="fixed">
+        <origin rpy="0 0 0" xyz="-0.100 0.100 0.1875"/>
+        <parent link="base_link"/>
+        <child link="standoff_rod_2"/>
+    </joint>
+
+    <!-- Standoff Rod 3 -->
+
+    <link name="standoff_rod_3">
+    <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+        <cylinder length="0.220" radius="0.010"/>
+        </geometry>
+        <material name="gray"/>
+    </visual>
+    </link>
+
+    <joint name="joint_standoff_rod_3" type="fixed">
+        <origin rpy="0 0 0" xyz="-0.100 -0.100 0.1875"/>
+        <parent link="base_link"/>
+        <child link="standoff_rod_3"/>
+    </joint>
+
+    <!-- Standoff Rod 4 -->
+
+    <link name="standoff_rod_4">
+    <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+        <cylinder length="0.220" radius="0.010"/>
+        </geometry>
+        <material name="gray"/>
+    </visual>
+    </link>
+
+    <joint name="joint_standoff_rod_4" type="fixed">
+        <origin rpy="0 0 0" xyz="0.100 -0.100 0.1875"/>
+        <parent link="base_link"/>
+        <child link="standoff_rod_4"/>
+    </joint>
+
+
+    <!-- Top Base -->
+
+    <link name="top_base">
+    <visual>
+        <geometry>
+        <cylinder radius="0.160" length="0.090"/>
+        </geometry>
+        <material name="green_dark"/>
+    </visual>
+    </link>
+
+    <joint name="joint_top_base" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.3425"/>
+        <parent link="base_link"/>
+        <child link="top_base"/>
     </joint>
 
 </robot>
