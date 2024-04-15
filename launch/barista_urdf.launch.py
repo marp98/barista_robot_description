@@ -28,9 +28,22 @@ def generate_launch_description():
         output="screen"
     )
 
+    # RVIZ Configuration
+    rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'urdf_vis.rviz')
+
+
+    rviz_node = Node(
+            package='rviz2',
+            executable='rviz2',
+            output='screen',
+            name='rviz_node',
+            parameters=[{'use_sim_time': True}],
+            arguments=['-d', rviz_config_dir])
+
     # create and return launch description object
     return LaunchDescription(
         [            
-            robot_state_publisher_node
+            robot_state_publisher_node,
+            rviz_node
         ]
     )
