@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="barista_robot">
 
-    <xacro:macro name="wheel" params="wheel_name wheel_position">
+    <xacro:macro name="wheel" params="wheel_name">
         <link name="${wheel_name}">
             <visual>
             <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
@@ -24,15 +24,6 @@
             <inertia ixx="3.07426666666667e-05" ixy="0" ixz="0" iyy="3.07426666666667e-05" iyz="0" izz="6.12266666666667e-05"/>
             </inertial>
         </link>
-
-        <joint name="joint_${wheel_name}" type="continuous">
-            <origin rpy="0 0 0" xyz="0 ${wheel_position} -0.0775"/>
-            <child link="${wheel_name}"/>
-            <parent link="base_link"/>
-            <axis rpy="0 0 0" xyz="0 1 0"/>
-            <limit effort="${wheel_effort_limit}" velocity="${wheel_velocity_limit}"/>
-            <joint_properties damping="${wheel_damping}" friction="${wheel_friction}"/>
-        </joint>
     </xacro:macro>
 
 </robot>
