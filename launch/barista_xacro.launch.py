@@ -17,14 +17,6 @@ def generate_launch_description():
     gazebo_models_path = os.path.join(pkg_box_bot_gazebo, 'models')
     os.environ['GAZEBO_MODEL_PATH'] = gazebo_models_path
 
-    # Gazebo launch
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
-        ),
-        launch_arguments={"verbose": "false", 'pause': 'true'}.items(),
-    )
-
     robot_model_path = os.path.join(
         get_package_share_directory('barista_robot_description'))
     xacro_file = os.path.join(robot_model_path, 'xacro', 'barista_robot_model.urdf.xacro')
@@ -46,12 +38,6 @@ def generate_launch_description():
         output="screen"
     )
 
-    joint_state_publisher_node = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        name='joint_state_publisher_node'
-    )
-
     # RVIZ Configuration
     rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'urdf_vis.rviz')
     rviz_node = Node(
@@ -61,6 +47,13 @@ def generate_launch_description():
         name='rviz_node',
         parameters=[{'use_sim_time': True}],
         arguments=['-d', rviz_config_dir]
+    )
+
+    # Gazebo launch
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
+        )
     )
 
     # Position and orientation
@@ -83,10 +76,9 @@ def generate_launch_description():
                    '-topic', '/robot_description']
     )
 
-    return LaunchDescription([
-        gazebo,
+    return LaunchDescription([   
         robot_state_publisher_node,
-        joint_state_publisher_node,
+        rviz_node,
+        gazebo,
         spawn_robot,
-        rviz_node
     ])
