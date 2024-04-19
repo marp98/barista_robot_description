@@ -75,21 +75,41 @@ def generate_launch_description():
                    '-topic', robot_name_2+'/robot_description']
     )
 
+    static_tf_pub1 = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher_robot1_odom',
+        output='screen',
+        emulate_tty=True,
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'robot1/odom']
+    )
+
+    static_tf_pub2 = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher_robot2_odom',
+        output='screen',
+        emulate_tty=True,
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'robot2/odom']
+    )
+
     # RVIZ Configuration
-    # rviz_config_dir = os.path.join(get_package_share_directory('barista_robot_description'), 'rviz', 'urdf_vis.rviz')
-    # rviz_node = Node(
-    #     package='rviz2',
-    #     executable='rviz2',
-    #     output='screen',
-    #     name='rviz_node',
-    #     parameters=[{'use_sim_time': True}],
-    #     arguments=['-d', rviz_config_dir]
-    # )
+    rviz_config_dir = os.path.join(get_package_share_directory('barista_robot_description'), 'rviz', 'urdf_two_vis.rviz')
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        output='screen',
+        name='rviz_node',
+        parameters=[{'use_sim_time': True}],
+        arguments=['-d', rviz_config_dir]
+    )
 
     return LaunchDescription([
         world_file_arg,
         gazebo,
-        # rviz_node,
+        rviz_node,
+        static_tf_pub1,
+        static_tf_pub2,
         rsp_robot1,
         rsp_robot2,
         spawn_robot1,
