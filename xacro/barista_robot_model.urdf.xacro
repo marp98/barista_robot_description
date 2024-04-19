@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="barista_robot">
 
+    <xacro:property name="robot_name" value="$(arg robot_name)"/>
+
     <xacro:include filename="$(find barista_robot_description)/xacro/barista_robot.gazebo.xacro" />
     <xacro:include filename="$(find barista_robot_description)/xacro/wheel.xacro" />
     <xacro:include filename="$(find barista_robot_description)/xacro/standoff.xacro" />
