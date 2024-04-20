@@ -58,7 +58,7 @@ Visualization Manager:
         Durability Policy: Transient Local
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /robot1/robot_description
+        Value: /rick/robot_description
       Enabled: true
       Links:
         All Links Enabled: true
@@ -148,8 +148,8 @@ Visualization Manager:
       Mass Properties:
         Inertia: false
         Mass: false
-      Name: robot1
-      TF Prefix: robot1
+      Name: rick
+      TF Prefix: rick
       Update Interval: 0
       Value: true
       Visual Enabled: true
@@ -183,7 +183,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Best Effort
-        Value: /robot1/scan
+        Value: /rick/scan
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -192,73 +192,73 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        robot1/back_pitch_link:
+        rick/back_pitch_link:
           Value: true
-        robot1/back_roll_link:
+        rick/back_roll_link:
           Value: true
-        robot1/back_yaw_link:
+        rick/back_yaw_link:
           Value: true
-        robot1/base_link:
+        rick/base_link:
           Value: true
-        robot1/cup_holder_tray:
+        rick/cup_holder_tray:
           Value: true
-        robot1/front_pitch_link:
+        rick/front_pitch_link:
           Value: true
-        robot1/front_roll_link:
+        rick/front_roll_link:
           Value: true
-        robot1/front_yaw_link:
+        rick/front_yaw_link:
           Value: true
-        robot1/laser_scan_frame:
+        rick/laser_scan_frame:
           Value: true
-        robot1/laser_scan_link:
+        rick/laser_scan_link:
           Value: true
-        robot1/left_wheel:
+        rick/left_wheel:
           Value: true
-        robot1/odom:
+        rick/odom:
           Value: true
-        robot1/right_wheel:
+        rick/right_wheel:
           Value: true
-        robot1/standoff_rod_1:
+        rick/standoff_rod_1:
           Value: true
-        robot1/standoff_rod_2:
+        rick/standoff_rod_2:
           Value: true
-        robot1/standoff_rod_3:
+        rick/standoff_rod_3:
           Value: true
-        robot1/standoff_rod_4:
+        rick/standoff_rod_4:
           Value: true
-        robot2/back_pitch_link:
+        morty/back_pitch_link:
           Value: true
-        robot2/back_roll_link:
+        morty/back_roll_link:
           Value: true
-        robot2/back_yaw_link:
+        morty/back_yaw_link:
           Value: true
-        robot2/base_link:
+        morty/base_link:
           Value: true
-        robot2/cup_holder_tray:
+        morty/cup_holder_tray:
           Value: true
-        robot2/front_pitch_link:
+        morty/front_pitch_link:
           Value: true
-        robot2/front_roll_link:
+        morty/front_roll_link:
           Value: true
-        robot2/front_yaw_link:
+        morty/front_yaw_link:
           Value: true
-        robot2/laser_scan_frame:
+        morty/laser_scan_frame:
           Value: true
-        robot2/laser_scan_link:
+        morty/laser_scan_link:
           Value: true
-        robot2/left_wheel:
+        morty/left_wheel:
           Value: true
-        robot2/odom:
+        morty/odom:
           Value: true
-        robot2/right_wheel:
+        morty/right_wheel:
           Value: true
-        robot2/standoff_rod_1:
+        morty/standoff_rod_1:
           Value: true
-        robot2/standoff_rod_2:
+        morty/standoff_rod_2:
           Value: true
-        robot2/standoff_rod_3:
+        morty/standoff_rod_3:
           Value: true
-        robot2/standoff_rod_4:
+        morty/standoff_rod_4:
           Value: true
         world:
           Value: true
@@ -269,59 +269,59 @@ Visualization Manager:
       Show Names: false
       Tree:
         world:
-          robot1/odom:
-            robot1/base_link:
-              robot1/back_yaw_link:
-                robot1/back_roll_link:
-                  robot1/back_pitch_link:
+          rick/odom:
+            rick/base_link:
+              rick/back_yaw_link:
+                rick/back_roll_link:
+                  rick/back_pitch_link:
                     {}
-              robot1/cup_holder_tray:
+              rick/cup_holder_tray:
                 {}
-              robot1/front_yaw_link:
-                robot1/front_roll_link:
-                  robot1/front_pitch_link:
+              rick/front_yaw_link:
+                rick/front_roll_link:
+                  rick/front_pitch_link:
                     {}
-              robot1/laser_scan_link:
-                robot1/laser_scan_frame:
+              rick/laser_scan_link:
+                rick/laser_scan_frame:
                   {}
-              robot1/left_wheel:
+              rick/left_wheel:
                 {}
-              robot1/right_wheel:
+              rick/right_wheel:
                 {}
-              robot1/standoff_rod_1:
+              rick/standoff_rod_1:
                 {}
-              robot1/standoff_rod_2:
+              rick/standoff_rod_2:
                 {}
-              robot1/standoff_rod_3:
+              rick/standoff_rod_3:
                 {}
-              robot1/standoff_rod_4:
+              rick/standoff_rod_4:
                 {}
-          robot2/odom:
-            robot2/base_link:
-              robot2/back_yaw_link:
-                robot2/back_roll_link:
-                  robot2/back_pitch_link:
+          morty/odom:
+            morty/base_link:
+              morty/back_yaw_link:
+                morty/back_roll_link:
+                  morty/back_pitch_link:
                     {}
-              robot2/cup_holder_tray:
+              morty/cup_holder_tray:
                 {}
-              robot2/front_yaw_link:
-                robot2/front_roll_link:
-                  robot2/front_pitch_link:
+              morty/front_yaw_link:
+                morty/front_roll_link:
+                  morty/front_pitch_link:
                     {}
-              robot2/laser_scan_link:
-                robot2/laser_scan_frame:
+              morty/laser_scan_link:
+                morty/laser_scan_frame:
                   {}
-              robot2/left_wheel:
+              morty/left_wheel:
                 {}
-              robot2/right_wheel:
+              morty/right_wheel:
                 {}
-              robot2/standoff_rod_1:
+              morty/standoff_rod_1:
                 {}
-              robot2/standoff_rod_2:
+              morty/standoff_rod_2:
                 {}
-              robot2/standoff_rod_3:
+              morty/standoff_rod_3:
                 {}
-              robot2/standoff_rod_4:
+              morty/standoff_rod_4:
                 {}
       Update Interval: 0
       Value: true
@@ -335,7 +335,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /robot2/robot_description
+        Value: /morty/robot_description
       Enabled: true
       Links:
         All Links Enabled: true
@@ -425,8 +425,8 @@ Visualization Manager:
       Mass Properties:
         Inertia: false
         Mass: false
-      Name: robot2
-      TF Prefix: robot2
+      Name: morty
+      TF Prefix: morty
       Update Interval: 0
       Value: true
       Visual Enabled: true
@@ -460,7 +460,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /robot2/scan
+        Value: /morty/scan
       Use Fixed Frame: true
       Use rainbow: true
       Value: true

@@ -38,8 +38,8 @@ def generate_launch_description():
     robot_desc_path = os.path.join(get_package_share_directory(
         "barista_robot_description"), "xacro", robot_desc_file)
 
-    robot_name_1 = "robot1"
-    robot_name_2 = "robot2"
+    robot_name_1 = "rick"
+    robot_name_2 = "morty"
 
     rsp_robot1 = Node(
         package='robot_state_publisher',
@@ -64,33 +64,33 @@ def generate_launch_description():
     spawn_robot1 = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-entity', 'robot1', '-x', '0.0', '-y', '0.0', '-z', '0.1107',
+        arguments=['-entity', 'rick', '-x', '0.0', '-y', '0.0', '-z', '0.1107',
                    '-topic', robot_name_1+'/robot_description']
     )
 
     spawn_robot2 = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-entity', 'robot2', '-x', '1.0', '-y', '1.0', '-z', '0.1107',
+        arguments=['-entity', 'morty', '-x', '1.0', '-y', '1.0', '-z', '0.1107',
                    '-topic', robot_name_2+'/robot_description']
     )
 
     static_tf_pub1 = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name='static_transform_publisher_robot1_odom',
+        name='static_transform_publisher_rick_odom',
         output='screen',
         emulate_tty=True,
-        arguments=['0', '0', '0', '0', '0', '0', 'world', 'robot1/odom']
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'rick/odom']
     )
 
     static_tf_pub2 = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name='static_transform_publisher_robot2_odom',
+        name='static_transform_publisher_morty_odom',
         output='screen',
         emulate_tty=True,
-        arguments=['0', '0', '0', '0', '0', '0', 'world', 'robot2/odom']
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'morty/odom']
     )
 
     # RVIZ Configuration
