@@ -7,7 +7,7 @@
             <geometry>
                 <cylinder radius="${cup_holder_tray_radius}" length="${cup_holder_tray_length}"/>
             </geometry>
-            <material name="green_dark"/>
+            <material name="${robot_name}_material"/>
             </visual>
             <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>

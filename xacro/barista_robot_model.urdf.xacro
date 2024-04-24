@@ -38,8 +38,15 @@
 
     <xacro:property name="include_laser" value="true"/>
 
-    <material name="green_dark">
-        <color rgba="0.0 0.5 0.0 1"/>
+    <xacro:property name="rick_color" value="0.0 0.0 0.5 1"/>
+    <xacro:property name="morty_color" value="0.5 0.0 0.0 1"/>
+
+    <material name="rick_material">
+        <color rgba="${rick_color}"/>
+    </material>
+
+    <material name="morty_material">
+        <color rgba="${morty_color}"/>
     </material>
 
     <material name="gray">
@@ -57,7 +64,7 @@
             <geometry>
                 <cylinder radius="${base_radius}" length="${base_length}"/>
             </geometry>
-            <material name="green_dark"/>
+            <material name="${robot_name}_material"/>
         </visual>
 
         <collision>

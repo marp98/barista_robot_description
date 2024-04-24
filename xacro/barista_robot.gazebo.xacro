@@ -3,7 +3,12 @@
 
     <xacro:macro name="gazebo_elements">
         <gazebo reference="base_link">
-            <material>Gazebo/Green</material>
+            <xacro:if value="${robot_name == 'rick'}">
+                <material>Gazebo/Blue</material>
+            </xacro:if>
+            <xacro:if value="${robot_name == 'morty'}">
+                <material>Gazebo/Red</material>
+            </xacro:if>
         </gazebo>
 
         <gazebo reference="left_wheel">
@@ -55,7 +60,12 @@
         </gazebo>
 
         <gazebo reference="cup_holder_tray">
-            <material>Gazebo/Green</material>
+            <xacro:if value="${robot_name == 'rick'}">
+                <material>Gazebo/Blue</material>
+            </xacro:if>
+            <xacro:if value="${robot_name == 'morty'}">
+                <material>Gazebo/Red</material>
+            </xacro:if>
         </gazebo>
 
         <!-- PLUGINS -->
